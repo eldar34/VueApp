@@ -83,6 +83,23 @@
 					</div>	
 				</div>
 
+				<div class="row pt-3" v-if="logs.length !== 0">
+					<div class="col-md-12">
+						<ul class="list-group">
+							<li 
+								v-for="log in logs"
+								class="list-group-item"
+								:class="{
+									'list-group-item-secondary': log.type === 'cnl',
+									'list-group-item-success': log.type === 'ok'
+								}"
+							>
+								{{log.text}} {{ log.date | date }}
+							</li>
+						</ul>
+					</div>
+				</div>
+
 					<div 
 						class="modal fade show" 
 						tabindex="-1" 
@@ -104,18 +121,31 @@
        							 </button>
       							 </div>
       							<div class="modal-body">
-      							  <p>Modal body text goes here.</p>
+      							  <p>Current car - <strong>{{ car.name }}</strong></p>
+
+      							  <ul>
+									<li>Model - <strong>{{ car.model }}</strong></li>
+									<li>Year - <strong>{{ car.year }}</strong></li>
+									<li>Owner - <strong>{{ car.owner }}</strong></li>
+								  </ul>
+
      							 </div>
      							 <div class="modal-footer">
        							 <button 
        							 	type="button" 
-       							 	class="btn btn-secondary" 
+       							 	class="btn btn-primary" 
        							 	data-dismiss="modal"
-       							 	@click="modalVisibility = false"
+       							 	@click="newOrder"
        							 >
-       							 	Close
+       							 	Buy
        							 </button>
-       							 <button type="button" class="btn btn-primary">Save changes</button>
+       							 <button 
+       							 	type="button" 
+       							 	class="btn btn-secondary"
+       							 	@click="cancelOrder"
+       							 >
+       							 	Cancel
+       							 </button>
      							 </div>
    							 </div>
   						</div>
