@@ -4,13 +4,13 @@
 	    <meta charset="UTF-8">
 	    <link rel="stylesheet" href="assets/css/bootstrap.css">
 	    <link rel="stylesheet" href="assets/css/main.css">
-	    <script src="assets/js/bootstrap.js"></script>
+
 	    
 	    <title>VueJS</title>
 	</head>
 		<body>
 			<h2>Hello Vue</h2>
-			<div class="container pt-5">
+			<div class="container pt-5" id="app">
 				<div class="row mb-3">
 					<div class="col">
 						<h1>Cars Aplication</h1>
@@ -24,9 +24,13 @@
 						</div>
 						<hr>
 						<ul class="list-group">
-							<li class="list-group-item list-group-item-action pointer">12345</li>
-							<li class="list-group-item list-group-item-action pointer">12345</li>
-							<li class="list-group-item list-group-item-action pointer">12345</li>
+							<li 
+								v-for="car in cars"
+								class="list-group-item list-group-item-action pointer"
+							>
+								{{ car.name }} - {{ car.model }}
+							</li>
+							
 						</ul>
 					</div>
 					<div class="col-md-8">
@@ -58,8 +62,10 @@
 
 
 
-
-
-
+			<script type="assets/js/bootstrap.js"></script>
+			<script src="assets/js/vue.js"></script>
+	    	<script src="assets/js/main.js"></script>
+			
+			
 		</body>
 </html>
