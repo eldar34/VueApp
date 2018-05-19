@@ -13,3 +13,52 @@
 .modal{
 	display: block;
 }
+
+/* Animation */
+
+/*
+
+*-enter			*-leave
+*-enter-active  *-leave-active
+*-enter-to		*-leave-to
+ 
+*/
+
+.phone-enter-active, .phone-leave-active{
+	transition: all .5s;
+}
+
+.phone-enter, .phone-leave-to{
+	transform: translateX(50px);
+	opacity: 0;
+}
+
+.modali-enter-active, .modali-leave-active{
+	transition: all .5s;
+}
+
+.modali-enter, .modali-leave-to{
+	transform: translateY(-400px);
+}
+
+.fade-enter-active{
+	animation: .5s fade forwards;
+}
+
+.fade-leave-active{
+	animation: .5s fade reverse;
+}
+
+.fade-enter, .fade-leave-to{
+	opacity: 0;
+}
+
+@keyframes fade{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: .5;
+	}
+
+}
